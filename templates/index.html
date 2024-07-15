@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        
+        <link rel="shortcut icon" href="static/img/favicon.png" type="image/png">
+
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
+
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <link rel="stylesheet" href="static/css/styles.css">
+
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+            .green {
+                color: green;
+            }
+            .red {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">5400_Managing_Data - Group 7</a>
+                
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">About</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#llm" class="nav__link">LLM Query</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#analysis" class="nav__link">Analysis</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#future_plan" class="nav__link">Future Plans</a>
+                        </li>
+                    </ul>
+            </nav>
+        </header>
+
+        <main class="main">
+            <section class="home" id="home">
+                <img src="static/img/home1.png" alt="" class="home__img">
+
+                <div class="home__container container grid">
+                    <div class="home__data">
+                        <h1 class="home__data-title"><b>Stock Stock  <br> </h1>
+                        <span class="home__data-subtitle">Coz Sometimes Two Stock are</span>
+                        <span class="home__data-subtitle">better than one</span>
+                    </div>
+                </div>
+                <img src="static/img/relax_cat.gif" alt="Cat Look UP" class="relax_cat">
+            </section>
+            
+            <section class="about section" id="about">  
+                <div class="about__container container grid">
+                    <div class="about__data">
+                        <h2 class="section__title about__title"><br> About Stock Stock</h2>
+                        <p class="about__description">In today's dynamic digital landscape, the utilization of Big Data has catalyzed a paradigm shift in financial market dynamics.
+                            With the capabilities of AI, our platform seamlessly integrates vast datasets to forecast market trends and furnish users 
+                            with invaluable investment insights.
+                        </p>
+                    <button class="view-modal"><strong>Stock Code</strong></button>
+                    <div class="modal-popup">
+                        <header>
+                        <span>Stock Info</span>
+                        <div class="close"><i class="uil uil-times"></i></div>
+                        </header>
+                        <div class="content">
+                        <ul class="icons">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-apple"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-amazon"></i></a>
+                            <a href="#"><i class="fab fa-google"></i></a>
+                        </ul>
+                        <p>Search Symbols</p>
+                        <div class="field">
+                            <i class="url-icon uil uil-search"></i>
+                            <input type="text" readonly value="Enter Company Name">
+                            <button>Search</button>
+                        </div>
+                        </div>
+                    </div>
+                    <script>
+                        const viewBtn = document.querySelector(".view-modal"),
+                        popup = document.querySelector(".modal-popup"),
+                        close = popup.querySelector(".close"),
+                        field = popup.querySelector(".field"),
+                        input = field.querySelector("input"),
+                        copy = field.querySelector("button");
+
+                        viewBtn.onclick = ()=>{
+                        popup.classList.toggle("show");
+                        }
+                        close.onclick = ()=>{
+                        viewBtn.click();
+                        }
+
+                        copy.onclick = ()=>{
+                        input.select(); 
+                        if(document.execCommand("copy")){ 
+                            field.classList.add("active");
+                            copy.innerText = "Copied";
+                            setTimeout(()=>{
+                            window.getSelection().removeAllRanges(); 
+                            field.classList.remove("active");
+                            copy.innerText = "Copy";
+                            }, 3000);
+                        }
+                        }
+                    </script>
+                    </div>
+                    <div class="about__img">
+                        <div class="about__img-overlay">
+                            <img src="static/img/about1.png" alt="" class="about__img-one">
+                        </div>
+
+                        <div class="about__img-overlay">
+                            <img src="static/img/about2.png" alt="" class="about__img-two">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tech section">
+                <h2 class="section__title">Tech Stack</h2>
+                <div class="tech__container container grid">
+                    <div class="tech__content">
+                        <img src="static/img/mongoDB.png" alt="" class="tech__img">
+                    </div>
+                    <div class="tech__content">
+                        <img src="static/img/postgreSQL.png" alt="" class="tech__img">
+                    </div>
+                    <div class="tech__content">
+                        <img src="static/img/flask.png" alt="" class="tech__img">
+                    </div>
+                    <div class="tech__content">
+                        <img src="static/img/meta.png" alt="" class="tech__img">
+                    </div>
+                    <div class="tech__content">
+                        <img src="static/img/front_end.png" alt="" class="tech__img">
+                    </div>
+                </div>
+            </section>
+
+            <section class="demo_section section" id="llm">
+                <div class="demo_section__bg">
+                    <img src="static/img/meta1.gif" alt="GIF Image" class="gif_image">
+                    <div class="demo_section__container container">
+                        <h2 class="section__title demo_section__title">Ask Us Something <br> about Stocks</h2>
+                        <form action="" class="demo_section__form">
+                            <input type="text" placeholder="Eg. Sentiment analysis & outlook of Nvidia" class="demo_section__input">
+                            <button class="button">Submit</button>
+                        </form>
+                    </div>
+                    <img src="static/img/cat_look_up.png" alt="Cat Look UP" class="cat_look_up">
+                    <img src="static/img/dog_waiving.png" alt="Cat Look UP" class="dog_waiving">
+                    <img src="static/img/peek_cat.gif" alt="Peeking GIF" class="peeking_gif">
+                </div>
+            </section>
+    
+            <section class="video section">
+                <h2 class="section__title">demo video of project</h2>
+                <div class="video__container container">
+                    <p class="video__description">some text if we want it here or explaining what is done in video</p>
+                    <div class="video__content">
+                        <video id="video-file">
+                            <source src="static/video/video.mp4" type="video/mp4">
+                        </video>
+                        <button class="button button--flex video__button" id="video-button">
+                            <i class="ri-play-line video__button-icon" id="video-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section class="place section" id="analysis">
+            <div class="content-container">
+                <h1>Enter Stock Symbols</h1>
+                <form method="post">
+                    {% for i in range(1, 6) %}
+                    <div class="input-group">
+                        <label for="symbol{{ i }}">Symbol {{ i }}:</label>
+                        <select name="symbol{{ i }}" class="select-box">
+                            <option value="" selected disabled>Select stock</option>
+                            {% for symbol in symbols|sort %}
+                            <option value="{{ symbol }}">{{ symbol }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            </div>
+
+            <div class="stock-selection"></div>
+                {% if historical_graph_data %}
+                    <h5>Historical Price Chart</h5>
+                    {% for symbol, graph_data in historical_graph_data.items() %}
+                        <div id="graph-{{ symbol }}"></div>
+                        <script>
+                            var graph_data_{{ symbol }} = {{ graph_data | tojson }};
+                            var layout_{{ symbol }} = {
+                                title: 'Historical Stock Prices ({{ symbol }})',
+                                xaxis: {
+                                    title: 'Time'
+                                },
+                                yaxis: {
+                                    title: 'Price'
+                                },
+                                legend: {
+                                    x: 0.1,
+                                    y: 1.1,
+                                    orientation: 'h'
+                                }
+                            };
+                            Plotly.newPlot('graph-{{ symbol }}', JSON.parse(graph_data_{{ symbol }}), layout_{{ symbol }});
+                        </script>
+                    {% endfor %}
+                {% endif %}
+            
+            
+                {% if intrinsic_values %}
+                    <h5>Intrinsic Values</h5>
+                    <table class="table-1">
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Intrinsic Value</th>
+                        </tr>
+                        {% for symbol, value in intrinsic_values.items() %}
+                        <tr>
+                            <td>{{ symbol }}</td>
+                            <td>{{ "{:,.2f}".format(value) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+                
+                {% if ratios %}
+                <h5>Stock Financial Ratios Results</h5>
+                <table class="table-2">
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Symbol</th>
+                        <th>Debt Ratio</th>
+                        <th>D/E Ratio</th>
+                        <th>CashFlow to Debt</th>
+                        <th>P/B Ratio</th>
+                        <th>P/S Ratio</th>
+                        <th>P/E Ratio</th>
+                        <th>PEG Ratio</th>
+                        <th>Receivables Turnover</th>
+                        <th>Payables Turnover</th>
+                        <th>Asset Turnover</th>
+                        <th>Current Ratio</th>
+                        <th>Quick Ratio</th>
+                        <th>Cash Ratio</th>
+                        <th>RO-Equity</th>
+                        <th>Gross Profit Margin</th>
+                        <th>Net Profit Margin</th>
+                        <th>Dividend Payout Ratio</th>
+                    </tr>
+                    {% for result in ratios %}
+                    <tr>
+                        <td>{{ result[0] }}</td>
+                        <td>{{ result[1] }}</td>
+                        <td>{{ result[2] }}</td>
+                        {% for i in result[3:] %}
+                            {% if loop.index == 1 and i|float < 0.4 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 1 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 2 and i|float < 1.0 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 2 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 3 and i|float > 0.10 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 3 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 4 and i|float < 1.5 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 4 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 5 and i|float < 1 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 5 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 6 and i|float < 15 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 6 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 7 and i|float > 2 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 7 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 8 and i|float > 10 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 8 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 9 and i|float < 6 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 9 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 10 and i|float > 1 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 10 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 11 and i|float > 1.5 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 11 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 12 and i|float > 1 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 12 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 13 and i|float > 0.5 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 13 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 14 and i|float > 0.15 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 14 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 15 and i|float > 0.10 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 15 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 16 and i|float > 0.10 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 16 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 17 and i|float < 0.35 %}
+                                <td class="green">{{ "%.2f"|format(i|float) }}</td>
+                            {% elif loop.index == 17 %}
+                                <td class="red">{{ "%.2f"|format(i|float) }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+                
+                {% if financial_graph_data %}
+                    <h5>Financial Metrics Chart</h5>
+                    {% for symbol, graph_data in financial_graph_data.items() %}
+                        <div id="financial-graph-{{ symbol }}"></div>
+                        <script>
+                            var financial_graph_data_{{ symbol }} = {{ graph_data | tojson }};
+                            var layout_financial_{{ symbol }} = {
+                                title: 'Financial Metrics ({{ symbol }})',
+                                yaxis: {
+                                    title: 'Value'
+                                },
+                                barmode: 'group'
+                            };
+                            Plotly.newPlot('financial-graph-{{ symbol }}', JSON.parse(financial_graph_data_{{ symbol }}), layout_financial_{{ symbol }});
+                        </script>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            {% for table_data in tables_data %}
+            {% set total_companies = table_data['companies']|length %}
+            {% if total_companies > 0 %}
+                {% set rank_percentage = (selected_symbol_ranks[table_data['symbol']] / total_companies) * 100 %}
+            {% else %}
+                {% set rank_percentage = 0 %}
+            {% endif %}
+            
+            <h5>{{ table_data['symbol'] }}: Companies in Same Industry
+                {% if selected_symbol_ranks.get(table_data['symbol']) is not none %}
+                    {% set rank = selected_symbol_ranks[table_data['symbol']] %}
+                    ( 
+                    <span style="color: {% if rank_percentage <= 10 %}green{% elif rank_percentage <= 25 %}orange{% else %}red{% endif %}; font-weight: {% if rank_percentage <= 10 %}bold{% else %}normal{% endif %};">
+                    Rank of {{ table_data['symbol'] }} is {{ rank }}  
+                    </span>)
+                {% endif %}
+            </h5>
+            <table class="table-3">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Company Name</th>
+                    <th>Industry</th>
+                    <th>Beta</th>
+                    <th>Market Cap</th>
+                    <th>Rank</th>
+                </tr>
+                {% for company in table_data['companies'] %}
+                {% set company_rank_percentage = (company[5] / total_companies) * 100 %}
+                <tr style="color: {% if company[0] == table_data['symbol'] %}{% if company_rank_percentage <= 10 %}green{% elif company_rank_percentage <= 25 %}orange{% else %}red{% endif %}{% else %}black{% endif %}; font-weight: {% if company[0] == table_data['symbol'] %}{% if company_rank_percentage <= 10 %}bold{% else %}normal{% endif %}{% else %}normal{% endif %};">
+                    <td>{{ company[0] }}</td>
+                    <td>{{ company[1] }}</td>
+                    <td>{{ company[2] }}</td>
+                    <td>{{ company[3] }}</td>
+                    <td>{{ company[4] }}</td>
+                    <td>{{ company[5] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+
+        <section class="experience section" id="future_plan">
+            <h2 class="section__title">What's Our Next Step</h2>
+            <div class="experience__container container grid">
+                <div class="experience__content grid">
+
+                    <div class="experience__data">
+                        <h2 class="experience__number">We aim to redefine how investment decisions are made in today's dynamic market landscape. 
+                            </h2>
+                        <span class="experience__description">20 Year's <br> Experience of being broke</span>
+                    </div>
+
+                    <div class="experience__data">
+                        <h2 class="experience__number">In the future, we envision expanding Stock Stock's capabilities to include real-time insights, advanced analytics, and
+                            cloud-powered scalability.</h2>
+                        <span class="experience__description">Don't trust us!<br> We'll make you bankrupt!!!</span>
+                    </div>
+
+                    <div class="experience__data">
+                        <h2 class="experience__number">Our AI is upgrading with advanced GPUs, enhancing query handling by boosting processing 
+                            speed and accuracy through parallel computing capabilities.</h2>
+                            <span class="experience__description">Give us money!!<br> We are so broke!</span>
+                    </div>
+                </div>
+                <div class="experience__img grid">
+
+                        <img src="static/img/pikachu.gif" alt="" class="experience__img-two">
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <img src="static/img/cat_scare.gif" alt="Cat Sneaky" class="cat_scare">
+            <img src="static/img/cat_sneaky.gif" alt="Cat Scare" class="cat_sneaky">
+        </section>
+
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content grid">
+                    <div class="footer__data">
+                        <h3 class="footer__title"> Our Team <br> ※＼ʕ ● ᴥ ●ʔ /※</h3>
+                        <div class="member__photos">
+                            <div class="member__photo">
+                                <img src="static/img/ting.jpg" alt="Member 1">
+                                <p class="member__name">Ting Ting</p>
+                            </div>
+                            <div class="member__photo">
+                                <img src="static/img/shashvat.jpg" alt="Member 2">
+                                <p class="member__name">Shashvat</p>
+                            </div>
+                            <div class="member__photo">
+                                <img src="static/img/winona.jpg" alt="Member 2">
+                                <p class="member__name">Winona</p>
+                            </div>
+                            <div class="member__photo">
+                                <img src="static/img/benjamin.jpg" alt="Member 2">
+                                <p class="member__name">Benjamin</p>
+                            </div>
+                            <div class="member__photo">
+                                <img src="static/img/siyuan.jpg" alt="Member 2">
+                                <p class="member__name">Siyuan</p>
+                            </div>
+                            <div class="member__photo">
+                                <img src="static/img/alice.jpg" alt="Member 2">
+                                <p class="member__name">Alice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__content_2 grid">
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">About Us</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Our Mission</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Goal</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Future Scalability</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Future Plan</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Investment</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Pricing</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Support</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">FAQs</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__data">
+                        
+                        <h3 class="footer__subtitle">Honestly, dont trust us!</h3>
+                        <ul>
+                            <li class="footer__item">
+                                
+                                <a href="" class="footer__link">ʕノ•ᴥ•ʔノ ︵ ┻━┻</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__rights">
+                    <p class="footer__copy">&#169; 2024 group_7. All rights reserved.</p>
+                    <div class="footer__terms">
+                        <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                        <a href="#" class="footer__terms-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+
+        <script src="static/js/scrollreveal.min.js"></script>
+        <script src="static/js/swiper-bundle.min.js"></script>
+        <script src="static/js/main.js"></script>
+    </body>
+</html>

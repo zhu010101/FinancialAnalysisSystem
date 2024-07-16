@@ -42,3 +42,6 @@ The MongoDB and LLM (Large Language Model) part, hosted on our group member's Gi
 - **Llama 2**: For sentiment analysis and generating natural language insights.
 - **Python**: For data extraction, transformation, and loading (ETL) processes.
 - **Streamlit**: For the front-end dashboard to present data insights.
+
+## Workflow Chart
+<img width="704" alt="image" src="https://github.com/user-attachments/assets/069d047b-e351-4292-a4ec-3cdf77002097">

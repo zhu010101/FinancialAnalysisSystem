@@ -17,9 +17,9 @@ def home():
             # Connect to the PostgreSQL database
             conn = psycopg2.connect(
                 host="localhost",
-                database="financial_data",
+                database="stockStock",
                 user="postgres",
-                password="potatobites"
+                password="123"
             )
             # Create a cursor
             cur = conn.cursor()
@@ -132,9 +132,9 @@ def home():
             for selected_symbol in selected_symbols:
                 conn = psycopg2.connect(
                     host="localhost",
-                    database="financial_data",
+                    database="stockStock",
                     user="postgres",
-                    password="potatobites"
+                    password="123"
                 )
 
                 cur = conn.cursor()
@@ -229,9 +229,9 @@ def home():
     try:
         conn = psycopg2.connect(
             host="localhost",
-            database="financial_data",
+            database="stockStock",
             user="postgres",
-            password="potatobites"
+            password="123"
         )
         cur = conn.cursor()
         cur.execute("SELECT DISTINCT symbol FROM financial_ratios")
